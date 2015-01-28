@@ -1,0 +1,31 @@
+<h1>Let's make a team!</h1>
+
+<p></p>
+
+
+
+<p>Add a new Team below:</p>
+
+<div class="jumbotron">
+<form action='/teams' method='post'>
+  <label for='team_name'>Add Team:</label>
+  <input id='team_name' name='team_name' type='text'>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+</div>
+
+<% if @teams.any?() %>
+<p>Click on a team to see its players:</p>
+
+
+
+<ul>
+  <% @teams.each do |team| %>
+  <li><a href="/teams/<%= team.id() %>"><%= team.team_name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>no teams yet.</p>
+<% end %>

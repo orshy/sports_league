@@ -1,25 +1,10 @@
   require("spec_helper")
 
-
   describe(Team) do
-
-    describe("#players") do
-      it('will add a player to a team') do
-        player1 = Player.new({:name => "Lemond"})
-        player1.save()
-        player2 = Player.new({:name => "Lemond"})
-        player2.save()
-        team = Team.new({:player_name => "Team USA"})
-        team.save()
-        team.add_player(player1)
-        team.add_player(player2)
-        expect(team.players()).to(eq([player1, player2]))
-      end
-    end
+  it("tells which players belong to a team") do
+    team = Team.create({:team_name => "team", :team_id => team.id})
+    employee1 = Player.create({:player_name => "employee1", :team_id => team.id})
+    employee2 = Player.create({:player_name => "employee2", :team_id => team.id})
+    expect(team.players()).to(eq([employee1, employee2]))
   end
 end
-
-
-
-# (NOTE - player_name should be changed to team_name
- # in database to avoid confusion)
