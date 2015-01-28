@@ -1,0 +1,10 @@
+  development:
+    adapter: postgresql
+    database: sports_league_development
+    template: template0
+
+
+  test:
+    adapter: postgresql
+    database: sports_league_test
+    template: template0
